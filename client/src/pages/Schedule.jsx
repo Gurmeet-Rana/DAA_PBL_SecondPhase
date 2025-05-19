@@ -10,7 +10,7 @@ const Schedule = () => {
   useEffect(() => {
     fetch('http://localhost:5000/api/trains')
       .then(res => res.json())
-      .then(data => setTrains(data));
+      .then(data => setTrains(data.trains||[]));
   }, []);
 
   return (

@@ -9,7 +9,7 @@ const connectDB=async()=>{
             console.log('MongoDB Connected');
         })
 
-        await mongoose.connect(`${process.env.MONGODB_URI}/Train`);
+        await mongoose.connect(`${process.env.MONGODB_URI}/TrainData`);
         
     }
     catch(error)
