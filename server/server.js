@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 // API endpoint to get all trains
+
 app.get("/api/trains", async (req, res) => {
   try {
     const trains = await Train.find();
