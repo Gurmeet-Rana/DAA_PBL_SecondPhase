@@ -1,0 +1,139 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_TRAINS 5
+#define MAX_PATHS 5
+#define MAX_STATIONS 20
+#define MAX_PLATFORMS 5
+#define MAX_STATION_NAME 30
+
+typedef struct {
+    char name[MAX_STATION_NAME];
+} Station;
+
+typedef struct {
+    int id;
+    int numStations;
+    Station stations[MAX_STATIONS];
+    int occupied;
+} Path;
+
+typedef struct {
+    int id;
+    int delay;
+    int platform;
+    int path;
+    int numStations;
+    Station stations[MAX_STATIONS];
+} Train;
+
+int compareStations(Station* s1, Station* s2) {
+    return strcmp(s1->name, s2->name) == 0;
+}
+
+int compareStationLists(Station* list1, int len1, Station* list2, int len2) {
+    if (len1 != len2) return 0;
+    for (int i = 0; i < len1; i++) {
+        if (!compareStations(&list1[i], &list2[i])) return 0;
+    }
+    return 1;
+}
+
+int findFreeCompatiblePath(Path* paths, int pathCount, Station* requiredStations, int stationCount) {
+    for (int i = 0; i < pathCount; i++) {
+        if (!paths[i].occupied && compareStationLists(paths[i].stations, paths[i].numStations, requiredStations, stationCount)) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void rescheduleTrain(Train* train, Path* paths, int pathCount) {
+    int newPath = findFreeCompatiblePath(paths, pathCount, train->stations, train->numStations);
+    if (newPath != -1) {
+        train->path = newPath;
+        paths[newPath].occupied = 1;
+        printf("Train %d rescheduled to path %d and platform %d.\n", train->id + 1, newPath + 1, train->platform);
+    } else {
+        printf("No compatible free path found for Train %d. Marking train as delayed.\n", train->id + 1);
+    }
+}
+
+int main() {
+    Train trains[MAX_TRAINS];
+    Path paths[MAX_PATHS];
+    int n, pathCount;
+
+    printf("Enter number of paths (max %d): ", MAX_PATHS);
+    if (scanf("%d", &pathCount) != 1 || pathCount <= 0 || pathCount > MAX_PATHS) {
+        printf("Invalid number of paths.\n");
+        return 1;
+    }
+
+    for (int i = 0; i < pathCount; i++) {
+        paths[i].id = i;
+        paths[i].occupied = 0;
+        printf("Enter number of stations in path %d: ", i + 1);
+        if (scanf("%d", &paths[i].numStations) != 1 || paths[i].numStations <= 0 || paths[i].numStations > MAX_STATIONS) {
+            printf("Invalid number of stations.\n");
+            return 1;
+        }
+
+        for (int j = 0; j < paths[i].numStations; j++) {
+            printf("  Station %d name: ", j + 1);
+            if (scanf("%29s", paths[i].stations[j].name) != 1) {
+                printf("Failed to read station name.\n");
+                return 1;
+            }
+        }
+    }
+
+    printf("\nEnter number of trains (max %d): ", MAX_TRAINS);
+    if (scanf("%d", &n) != 1 || n <= 0 || n > MAX_TRAINS) {
+        printf("Invalid number of trains.\n");
+        return 1;
+    }
+
+    for (int i = 0; i < n; i++) {
+        trains[i].id = i;
+        printf("\nEnter info for Train %d\n", i + 1);
+
+        printf("Initial delay (in minutes): ");
+        if (scanf("%d", &trains[i].delay) != 1 || trains[i].delay < 0) {
+            printf("Invalid delay.\n");
+            return 1;
+        }
+
+        printf("Platform number (1 to %d): ", MAX_PLATFORMS);
+        if (scanf("%d", &trains[i].platform) != 1 || trains[i].platform < 1 || trains[i].platform > MAX_PLATFORMS) {
+            printf("Invalid platform number.\n");
+            return 1;
+        }
+
+        printf("Path number (1 to %d): ", pathCount);
+        if (scanf("%d", &trains[i].path) != 1 || trains[i].path < 1 || trains[i].path > pathCount) {
+            printf("Invalid path number.\n");
+            return 1;
+        }
+
+        int pathIndex = trains[i].path - 1;
+        trains[i].path = pathIndex;
+        paths[pathIndex].occupied = 1;
+        trains[i].numStations = paths[pathIndex].numStations;
+
+        for (int j = 0; j < trains[i].numStations; j++) {
+            strcpy(trains[i].stations[j].name, paths[pathIndex].stations[j].name);
+        }
+    }
+
+    printf("\n--- Rescheduling Trains ---\n");
+    for (int i = 0; i < n; i++) {
+        if (trains[i].delay > 0) {
+            printf("\nTrain %d has delay. Checking for rescheduling...\n", trains[i].id + 1);
+            rescheduleTrain(&trains[i], paths, pathCount);
+        }
+    }
+
+    return 0;
+}
