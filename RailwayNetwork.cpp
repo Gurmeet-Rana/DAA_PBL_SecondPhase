@@ -1,8 +1,10 @@
-#include<iostream>
-#include<vector>
-#include<fstream>
-#include<sstream>
-#include<unordered_map>
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <unordered_map>
+#include <queue>
+#include <algorithm>
 using namespace std;
 
 class Station {
@@ -38,56 +40,139 @@ public:
     }
 };
 
-void resolvePlatformConflicts(vector<Train>& trains) {
-    unordered_map<string, unordered_map<int, unordered_map<int, int>>> stationSchedule;
+unordered_map<string, vector<pair<string, int>>> graph;
 
+// ---- 🧠 Step 1: Sort & Allocate Platforms Greedily ----
+void resolvePlatformConflicts(vector<Train>& trains) {
+    // Map: station name → vector of {arrivalTime, departureTime, &station}
+    unordered_map<string, vector<pair<int, Station*>>> stationEvents;
+
+    // Gather all station events
     for (Train& train : trains) {
         for (Station& station : train.route) {
-            string name = station.name;
-            int time = station.arrivalTime;
-            int platform = station.platformNumber;
+            int arr = station.arrivalTime + station.delay;
+            stationEvents[station.name].push_back({arr, &station});
+        }
+    }
 
-            // Check if current platform at that time is already occupied
-            if (stationSchedule[name][time].count(platform)) {
-                // Conflict detected
-                cout << "Conflict at " << name << " at " << time 
-                     << " on platform " << platform << " for Train " << train.trainId << endl;
+    // Process station by station
+    for (auto& entry : stationEvents) {
+        string stationName = entry.first;
+        auto& events = entry.second;
 
-                // Try to find another available platform
-                bool reassigned = false;
-                for (int newPlat = 1; newPlat <= station.totalPlatforms; ++newPlat) {
-                    if (!stationSchedule[name][time].count(newPlat)) {
-                        cout << "Reassigning Train " << train.trainId 
-                             << " to platform " << newPlat << " at " << name << endl;
-                        station.platformNumber = newPlat;
-                        stationSchedule[name][time][newPlat] = train.trainId;
-                        reassigned = true;
-                        break;
-                    }
+        // Sort by arrival time (greedy strategy)
+        sort(events.begin(), events.end(), [](auto& a, auto& b) {
+            return a.first < b.first;
+        });
+
+        // Min-heap of {departureTime, platformNumber}
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> platformQueue;
+        unordered_map<int, bool> platformAvailable;
+
+        int maxPlatforms = 0;
+        for (auto& e : events) {
+            Station* s = e.second;
+            maxPlatforms = max(maxPlatforms, s->totalPlatforms);
+        }
+
+        for (int p = 1; p <= maxPlatforms; ++p)
+            platformAvailable[p] = true;
+
+        for (auto& e : events) {
+            Station* s = e.second;
+
+            // Free up platforms whose trains have already left
+            while (!platformQueue.empty() && platformQueue.top().first <= s->arrivalTime + s->delay) {
+                int freedPlat = platformQueue.top().second;
+                platformQueue.pop();
+                platformAvailable[freedPlat] = true;
+            }
+
+            bool assigned = false;
+            for (int p = 1; p <= s->totalPlatforms; ++p) {
+                if (platformAvailable[p]) {
+                    s->platformNumber = p;
+                    platformAvailable[p] = false;
+                    platformQueue.push({s->departureTime + s->delay, p});
+                    assigned = true;
+                    break;
                 }
+            }
 
-                if (!reassigned) {
-                    cout << "No available platforms at " << name << " at " << time 
-                         << " for Train " << train.trainId << endl;
-                    // Optionally, you could delay the train or flag a schedule error here
-                }
-            } else {
-                // No conflict, assign the platform
-                stationSchedule[name][time][platform] = train.trainId;
+            if (!assigned) {
+                // Delay this train by 5 mins and reassign later
+                s->delay += 5;
+                s->arrivalTime += 5;
+                s->departureTime += 5;
+
+                // Re-evaluate later in next iteration
+                // WARNING: For simplicity, we're not recursively fixing it here
+                // For full optimization, this should be a loop until all assigned
             }
         }
     }
 }
 
-// Graph: station → list of next connected stations with travel time
-unordered_map<string, vector<pair<string, int>>> graph;
+// ---- 🧠 Step 2: Propagate Cumulative Delay ----
+void propagateDelays(vector<Train>& trains) {
+    for (Train& train : trains) {
+        int cumulativeDelay = 0;
+        for (auto& station : train.route) {
+            station.arrivalTime += cumulativeDelay;
+            station.departureTime += cumulativeDelay;
+            station.arrivalTime += station.delay;
+            station.departureTime += station.delay;
+            cumulativeDelay += station.delay;
+        }
+    }
+}
 
+// ---- Build Graph from Train Routes ----
+void buildGraphFromTrains(const vector<Train>& trains) {
+    for (const Train& train : trains) {
+        for (int i = 0; i < train.route.size() - 1; ++i) {
+            string from = train.route[i].name;
+            string to = train.route[i + 1].name;
+            int travelTime = train.route[i + 1].arrivalTime - train.route[i].departureTime;
+            if (travelTime < 0) travelTime += 2400;
+            graph[from].push_back({to, travelTime});
+        }
+    }
+}
+
+void printGraph() {
+    cout << "\nTrain Route Graph:\n";
+    for (const auto& node : graph) {
+        cout << node.first << " --> ";
+        for (const auto& edge : node.second) {
+            cout << "(" << edge.first << ", " << edge.second << ") ";
+        }
+        cout << "\n";
+    }
+}
+
+void printTrainSchedules(const vector<Train>& trains) {
+    cout << "\nTrain Schedules:\n";
+    for (const auto& train : trains) {
+        cout << "Train " << train.trainId << ":\n";
+        for (const auto& st : train.route) {
+            cout << "  " << st.name 
+                 << " | Arr: " << st.arrivalTime 
+                 << " | Dep: " << st.departureTime 
+                 << " | Delay: " << st.delay 
+                 << " | Platform: " << st.platformNumber << "\n";
+        }
+        cout << "--------------------------\n";
+    }
+}
+
+// ---- File Reader ----
 vector<Train> readTrainsFromFile(string filename) {
     vector<Train> trains;
     ifstream file(filename);
     string line;
-
     Train currentTrain;
+
     while (getline(file, line)) {
         if (line == "ENDTRAIN") {
             trains.push_back(currentTrain);
@@ -106,36 +191,18 @@ vector<Train> readTrainsFromFile(string filename) {
         Station s(stationName, at, dt, platform, totalPlatforms, delay, psngrWt, psngrAr);
         currentTrain.route.push_back(s);
     }
-
     return trains;
 }
 
-void buildGraphFromTrains(const vector<Train>& trains) {
-    for (const Train& train : trains) {
-        for (int i = 0; i < train.route.size() - 1; ++i) {
-            string from = train.route[i].name;
-            string to = train.route[i + 1].name;
-            int travelTime = train.route[i + 1].arrivalTime - train.route[i].departureTime;
-            if (travelTime < 0) travelTime += 2400;  // wrap around if needed
-            graph[from].push_back({to, travelTime});
-        }
-    }
-}
-
-void printGraph() {
-    cout << "\nTrain Route Graph:\n";
-    for (const auto& node : graph) {
-        cout << node.first << " --> ";
-        for (const auto& edge : node.second) {
-            cout << "(" << edge.first << ", " << edge.second << ") ";
-        }
-        cout << "\n";
-    }
-}
-
+// ---- Main ----
 int main() {
     vector<Train> trains = readTrainsFromFile("trainData.txt");
     buildGraphFromTrains(trains);
     printGraph();
+
+    resolvePlatformConflicts(trains);
+    propagateDelays(trains);
+    printTrainSchedules(trains);
+
     return 0;
 }

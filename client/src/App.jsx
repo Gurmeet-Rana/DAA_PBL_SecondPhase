@@ -1,17 +1,15 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import Schedule from "./pages/Schedule";
+import LoadLocalData from './components/LoadLocalData';
 
-const App = () => {
+function App() {
+  const [graph, setGraph] = useState([]);
+  const [schedules, setSchedules] = useState([]);
+
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/schedule' element={<Schedule />} />
-      </Routes>
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-2xl font-bold mb-4 text-center">Train Delay & Platform Optimizer</h1>
+      <LoadLocalData setGraph={setGraph} setSchedules={setSchedules} />
+      {graph.length > 0 && <TrainGraph graph={graph} />}
+      {schedules.length > 0 && <TrainSchedule schedules={schedules} />}
     </div>
   );
-};
-
-export default App;
+}
