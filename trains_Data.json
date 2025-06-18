@@ -1,0 +1,882 @@
+[
+  {
+    "trainNumber": "12801",
+    "route": [
+      {
+        "station": "NDLS",
+        "arrival": 0,
+        "departure": 15,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 150,
+        "passengersArriving": 60
+      },
+      {
+        "station": "CNB",
+        "arrival": 320,
+        "departure": 325,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 2,
+        "passengersWaiting": 80,
+        "passengersArriving": 50
+      },
+      {
+        "station": "PRYJ",
+        "arrival": 510,
+        "departure": 515,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 70,
+        "passengersArriving": 40
+      },
+      {
+        "station": "MGS",
+        "arrival": 630,
+        "departure": 635,
+        "platform": 4,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 65,
+        "passengersArriving": 35
+      },
+      {
+        "station": "GAYA",
+        "arrival": 745,
+        "departure": 750,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 60,
+        "passengersArriving": 30
+      },
+      {
+        "station": "DHN",
+        "arrival": 905,
+        "departure": 910,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 10,
+        "passengersWaiting": 55,
+        "passengersArriving": 25
+      },
+      {
+        "station": "RNC",
+        "arrival": 1035,
+        "departure": 1040,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 50,
+        "passengersArriving": 20
+      },
+      {
+        "station": "KGP",
+        "arrival": 1215,
+        "departure": 1220,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 40,
+        "passengersArriving": 15
+      },
+      {
+        "station": "BBS",
+        "arrival": 1445,
+        "departure": 1450,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 30,
+        "passengersArriving": 10
+      },
+      {
+        "station": "PURI",
+        "arrival": 1600,
+        "departure": 0,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 20,
+        "passengersArriving": 5
+      }
+    ]
+  },
+  {
+    "trainNumber": "12951",
+    "route": [
+      {
+        "station": "MMCT",
+        "arrival": 0,
+        "departure": 15,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 140,
+        "passengersArriving": 65
+      },
+      {
+        "station": "ST",
+        "arrival": 230,
+        "departure": 235,
+        "platform": 2,
+        "totalPlatforms": 12,
+        "delay": 2,
+        "passengersWaiting": 110,
+        "passengersArriving": 50
+      },
+      {
+        "station": "BRC",
+        "arrival": 445,
+        "departure": 450,
+        "platform": 3,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 95,
+        "passengersArriving": 45
+      },
+      {
+        "station": "RTM",
+        "arrival": 730,
+        "departure": 735,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 5,
+        "passengersWaiting": 85,
+        "passengersArriving": 35
+      },
+      {
+        "station": "KOTA",
+        "arrival": 950,
+        "departure": 955,
+        "platform": 3,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 75,
+        "passengersArriving": 30
+      },
+      {
+        "station": "SWM",
+        "arrival": 1105,
+        "departure": 1110,
+        "platform": 2,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 65,
+        "passengersArriving": 25
+      },
+      {
+        "station": "JP",
+        "arrival": 1240,
+        "departure": 1245,
+        "platform": 4,
+        "totalPlatforms": 12,
+        "delay": 10,
+        "passengersWaiting": 55,
+        "passengersArriving": 20
+      },
+      {
+        "station": "RE",
+        "arrival": 1420,
+        "departure": 1425,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 45,
+        "passengersArriving": 15
+      },
+      {
+        "station": "NDLS",
+        "arrival": 1600,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 30,
+        "passengersArriving": 10
+      }
+    ]
+  },
+  {
+    "trainNumber": "12295",
+    "route": [
+      {
+        "station": "BNC",
+        "arrival": 0,
+        "departure": 20,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 130,
+        "passengersArriving": 70
+      },
+      {
+        "station": "YPR",
+        "arrival": 45,
+        "departure": 50,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 110,
+        "passengersArriving": 60
+      },
+      {
+        "station": "KSR",
+        "arrival": 70,
+        "departure": 75,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 90,
+        "passengersArriving": 50
+      },
+      {
+        "station": "KPD",
+        "arrival": 280,
+        "departure": 285,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 80,
+        "passengersArriving": 40
+      },
+      {
+        "station": "RU",
+        "arrival": 420,
+        "departure": 425,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 70,
+        "passengersArriving": 30
+      },
+      {
+        "station": "TPTY",
+        "arrival": 540,
+        "departure": 545,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 60,
+        "passengersArriving": 25
+      },
+      {
+        "station": "GDR",
+        "arrival": 615,
+        "departure": 620,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 50,
+        "passengersArriving": 20
+      },
+      {
+        "station": "MAS",
+        "arrival": 730,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 40,
+        "passengersArriving": 15
+      }
+    ]
+  },
+  {
+    "trainNumber": "12423",
+    "route": [
+      {
+        "station": "NDLS",
+        "arrival": 0,
+        "departure": 30,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 180,
+        "passengersArriving": 80
+      },
+      {
+        "station": "AGC",
+        "arrival": 240,
+        "departure": 245,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 130,
+        "passengersArriving": 70
+      },
+      {
+        "station": "GWL",
+        "arrival": 415,
+        "departure": 420,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 110,
+        "passengersArriving": 60
+      },
+      {
+        "station": "JHS",
+        "arrival": 600,
+        "departure": 605,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 90,
+        "passengersArriving": 50
+      },
+      {
+        "station": "BPL",
+        "arrival": 830,
+        "departure": 835,
+        "platform": 4,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 75,
+        "passengersArriving": 40
+      },
+      {
+        "station": "NGP",
+        "arrival": 1130,
+        "departure": 1140,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 10,
+        "passengersWaiting": 60,
+        "passengersArriving": 30
+      },
+      {
+        "station": "BPQ",
+        "arrival": 1245,
+        "departure": 1250,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 50,
+        "passengersArriving": 25
+      },
+      {
+        "station": "KZJ",
+        "arrival": 1420,
+        "departure": 1425,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 40,
+        "passengersArriving": 20
+      },
+      {
+        "station": "SC",
+        "arrival": 1600,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 30,
+        "passengersArriving": 10
+      }
+    ]
+  },
+  {
+    "trainNumber": "12002",
+    "route": [
+      {
+        "station": "NDLS",
+        "arrival": 0,
+        "departure": 6,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 170,
+        "passengersArriving": 60
+      },
+      {
+        "station": "GZB",
+        "arrival": 45,
+        "departure": 47,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 130,
+        "passengersArriving": 50
+      },
+      {
+        "station": "MZN",
+        "arrival": 120,
+        "departure": 122,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 110,
+        "passengersArriving": 45
+      },
+      {
+        "station": "SRE",
+        "arrival": 200,
+        "departure": 202,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 95,
+        "passengersArriving": 40
+      },
+      {
+        "station": "KLK",
+        "arrival": 420,
+        "departure": 430,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 80,
+        "passengersArriving": 30
+      },
+      {
+        "station": "CDG",
+        "arrival": 505,
+        "departure": 510,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 60,
+        "passengersArriving": 25
+      },
+      {
+        "station": "LDH",
+        "arrival": 615,
+        "departure": 617,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 40,
+        "passengersArriving": 20
+      },
+      {
+        "station": "JUC",
+        "arrival": 735,
+        "departure": 737,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 25,
+        "passengersArriving": 10
+      },
+      {
+        "station": "ASR",
+        "arrival": 845,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 20,
+        "passengersArriving": 5
+      }
+    ]
+  },
+  {
+    "trainNumber": "12953",
+    "route": [
+      {
+        "station": "MMCT",
+        "arrival": 0,
+        "departure": 15,
+        "platform": 2,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 135,
+        "passengersArriving": 70
+      },
+      {
+        "station": "BRC",
+        "arrival": 255,
+        "departure": 260,
+        "platform": 3,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 115,
+        "passengersArriving": 60
+      },
+      {
+        "station": "BRC",
+        "arrival": 255,
+        "departure": 260,
+        "platform": 3,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 115,
+        "passengersArriving": 60
+      },
+      {
+        "station": "RTM",
+        "arrival": 540,
+        "departure": 545,
+        "platform": 4,
+        "totalPlatforms": 12,
+        "delay": 5,
+        "passengersWaiting": 100,
+        "passengersArriving": 50
+      },
+      {
+        "station": "KOTA",
+        "arrival": 800,
+        "departure": 805,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 90,
+        "passengersArriving": 40
+      },
+      {
+        "station": "SWM",
+        "arrival": 915,
+        "departure": 920,
+        "platform": 2,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 80,
+        "passengersArriving": 35
+      },
+      {
+        "station": "JP",
+        "arrival": 1100,
+        "departure": 1105,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 60,
+        "passengersArriving": 30
+      },
+      {
+        "station": "NDLS",
+        "arrival": 1340,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 12,
+        "delay": 0,
+        "passengersWaiting": 50,
+        "passengersArriving": 25
+      }
+    ]
+  },
+  {
+    "trainNumber": "12723",
+    "route": [
+      {
+        "station": "HYB",
+        "arrival": 0,
+        "departure": 10,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 140,
+        "passengersArriving": 60
+      },
+      {
+        "station": "KZJ",
+        "arrival": 120,
+        "departure": 125,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 110,
+        "passengersArriving": 50
+      },
+      {
+        "station": "BPQ",
+        "arrival": 220,
+        "departure": 225,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 90,
+        "passengersArriving": 45
+      },
+      {
+        "station": "NGP",
+        "arrival": 350,
+        "departure": 355,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 75,
+        "passengersArriving": 35
+      },
+      {
+        "station": "JBP",
+        "arrival": 615,
+        "departure": 620,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 60,
+        "passengersArriving": 30
+      },
+      {
+        "station": "BPL",
+        "arrival": 805,
+        "departure": 810,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 50,
+        "passengersArriving": 25
+      },
+      {
+        "station": "JHS",
+        "arrival": 1020,
+        "departure": 1025,
+        "platform": 4,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 40,
+        "passengersArriving": 20
+      },
+      {
+        "station": "GWL",
+        "arrival": 1200,
+        "departure": 1205,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 30,
+        "passengersArriving": 15
+      },
+      {
+        "station": "NDLS",
+        "arrival": 1400,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 20,
+        "passengersArriving": 10
+      }
+    ]
+  },
+  {
+    "trainNumber": "12860",
+    "route": [
+      {
+        "station": "HWH",
+        "arrival": 0,
+        "departure": 10,
+        "platform": 1,
+        "totalPlatforms": 8,
+        "delay": 0,
+        "passengersWaiting": 130,
+        "passengersArriving": 70
+      },
+      {
+        "station": "ASN",
+        "arrival": 170,
+        "departure": 175,
+        "platform": 2,
+        "totalPlatforms": 8,
+        "delay": 0,
+        "passengersWaiting": 100,
+        "passengersArriving": 60
+      },
+      {
+        "station": "DHN",
+        "arrival": 285,
+        "departure": 290,
+        "platform": 3,
+        "totalPlatforms": 8,
+        "delay": 5,
+        "passengersWaiting": 85,
+        "passengersArriving": 50
+      },
+      {
+        "station": "GAYA",
+        "arrival": 405,
+        "departure": 410,
+        "platform": 4,
+        "totalPlatforms": 8,
+        "delay": 0,
+        "passengersWaiting": 75,
+        "passengersArriving": 40
+      },
+      {
+        "station": "MGS",
+        "arrival": 530,
+        "departure": 535,
+        "platform": 2,
+        "totalPlatforms": 8,
+        "delay": 0,
+        "passengersWaiting": 60,
+        "passengersArriving": 30
+      },
+      {
+        "station": "PRYJ",
+        "arrival": 645,
+        "departure": 650,
+        "platform": 1,
+        "totalPlatforms": 8,
+        "delay": 0,
+        "passengersWaiting": 50,
+        "passengersArriving": 25
+      },
+      {
+        "station": "CNB",
+        "arrival": 845,
+        "departure": 850,
+        "platform": 3,
+        "totalPlatforms": 8,
+        "delay": 5,
+        "passengersWaiting": 35,
+        "passengersArriving": 20
+      },
+      {
+        "station": "NDLS",
+        "arrival": 1100,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 8,
+        "delay": 0,
+        "passengersWaiting": 25,
+        "passengersArriving": 15
+      }
+    ]
+  },
+  {
+    "trainNumber": "12626",
+    "route": [
+      {
+        "station": "SBC",
+        "arrival": 0,
+        "departure": 15,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 120,
+        "passengersArriving": 60
+      },
+      {
+        "station": "MYS",
+        "arrival": 120,
+        "departure": 125,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 100,
+        "passengersArriving": 50
+      },
+      {
+        "station": "ASK",
+        "arrival": 240,
+        "departure": 245,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 90,
+        "passengersArriving": 45
+      },
+      {
+        "station": "UBL",
+        "arrival": 400,
+        "departure": 405,
+        "platform": 4,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 80,
+        "passengersArriving": 40
+      },
+      {
+        "station": "BGM",
+        "arrival": 520,
+        "departure": 525,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 5,
+        "passengersWaiting": 60,
+        "passengersArriving": 30
+      },
+      {
+        "station": "MIR",
+        "arrival": 640,
+        "departure": 645,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 45,
+        "passengersArriving": 25
+      },
+      {
+        "station": "LTT",
+        "arrival": 930,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 30,
+        "passengersArriving": 15
+      }
+    ]
+  },
+  {
+    "trainNumber": "12688",
+    "route": [
+      {
+        "station": "MAS",
+        "arrival": 0,
+        "departure": 25,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 140,
+        "passengersArriving": 70
+      },
+      {
+        "station": "RU",
+        "arrival": 180,
+        "departure": 185,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 115,
+        "passengersArriving": 60
+      },
+      {
+        "station": "TPTY",
+        "arrival": 320,
+        "departure": 325,
+        "platform": 3,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 100,
+        "passengersArriving": 50
+      },
+      {
+        "station": "GDR",
+        "arrival": 400,
+        "departure": 405,
+        "platform": 4,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 85,
+        "passengersArriving": 40
+      },
+      {
+        "station": "YPR",
+        "arrival": 610,
+        "departure": 615,
+        "platform": 2,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 70,
+        "passengersArriving": 30
+      },
+      {
+        "station": "SBC",
+        "arrival": 630,
+        "departure": 0,
+        "platform": 1,
+        "totalPlatforms": 10,
+        "delay": 0,
+        "passengersWaiting": 50,
+        "passengersArriving": 20
+      }
+    ]
+  }
+]
