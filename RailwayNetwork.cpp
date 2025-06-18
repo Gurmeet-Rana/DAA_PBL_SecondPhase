@@ -38,6 +38,47 @@ public:
     }
 };
 
+void resolvePlatformConflicts(vector<Train>& trains) {
+    unordered_map<string, unordered_map<int, unordered_map<int, int>>> stationSchedule;
+
+    for (Train& train : trains) {
+        for (Station& station : train.route) {
+            string name = station.name;
+            int time = station.arrivalTime;
+            int platform = station.platformNumber;
+
+            // Check if current platform at that time is already occupied
+            if (stationSchedule[name][time].count(platform)) {
+                // Conflict detected
+                cout << "Conflict at " << name << " at " << time 
+                     << " on platform " << platform << " for Train " << train.trainId << endl;
+
+                // Try to find another available platform
+                bool reassigned = false;
+                for (int newPlat = 1; newPlat <= station.totalPlatforms; ++newPlat) {
+                    if (!stationSchedule[name][time].count(newPlat)) {
+                        cout << "Reassigning Train " << train.trainId 
+                             << " to platform " << newPlat << " at " << name << endl;
+                        station.platformNumber = newPlat;
+                        stationSchedule[name][time][newPlat] = train.trainId;
+                        reassigned = true;
+                        break;
+                    }
+                }
+
+                if (!reassigned) {
+                    cout << "No available platforms at " << name << " at " << time 
+                         << " for Train " << train.trainId << endl;
+                    // Optionally, you could delay the train or flag a schedule error here
+                }
+            } else {
+                // No conflict, assign the platform
+                stationSchedule[name][time][platform] = train.trainId;
+            }
+        }
+    }
+}
+
 // Graph: station → list of next connected stations with travel time
 unordered_map<string, vector<pair<string, int>>> graph;
 
