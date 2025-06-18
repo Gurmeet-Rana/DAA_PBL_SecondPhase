@@ -6,7 +6,7 @@ export default function App() {
   const [selectedOption, setSelectedOption] = useState("Welcome");
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-200">
       <Sidebar onOptionSelect={setSelectedOption} />
       <MainSection selectedOption={selectedOption} />
     </div>

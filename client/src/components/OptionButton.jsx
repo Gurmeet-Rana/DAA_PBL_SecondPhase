@@ -1,8 +1,8 @@
 export default function OptionButton({ label, onClick }) {
   return (
     <button
-      className="bg-gray-200 hover:bg-gray-300 p-3 rounded text-left text-sm font-medium"
       onClick={onClick}
+      className="bg-[#2a2a3b] hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md"
     >
       {label}
     </button>

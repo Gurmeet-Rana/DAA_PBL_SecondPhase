@@ -2,7 +2,6 @@ import OptionButton from "./OptionButton";
 
 export default function Sidebar({ onOptionSelect }) {
   const options = [
-    "View Graph",
     "Reschedule Platforms",
     "Propagate Delays",
     "Show Train Schedules",
@@ -10,9 +9,11 @@ export default function Sidebar({ onOptionSelect }) {
   ];
 
   return (
-    <div className="w-64 bg-white shadow-lg p-4 flex flex-col">
-      <h2 className="text-2xl font-bold mb-6 text-center">Train Menu</h2>
-      <div className="flex flex-col gap-2">
+    <div className="w-64 bg-[#1e1e2f] text-white shadow-xl p-6 flex flex-col border border-gray-700">
+      <h2 className="text-2xl font-semibold mt-20 mb-6 text-center text-green-300">
+        Train Menu
+      </h2>
+      <div className="flex flex-col gap-8">
         {options.map((label, index) => (
           <OptionButton
             key={index}
