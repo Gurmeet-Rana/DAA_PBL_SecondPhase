@@ -10,8 +10,8 @@ export default function DelayPropagator({ data }) {
 
       return {
         ...station,
-        cumulativeArrival: station.arrivalTime + cumulativeDelay,
-        cumulativeDeparture: station.departureTime + cumulativeDelay,
+        cumulativeArrival: station.arrival + cumulativeDelay,
+        cumulativeDeparture: station.departure + cumulativeDelay,
         cumulativeDelay,
       };
     });
@@ -19,21 +19,21 @@ export default function DelayPropagator({ data }) {
 
   return (
     <div>
-      <h3 className="text-lg font-bold mb-4">🚨 Delay Propagation View</h3>
+      <h3 className="text-lg font-bold mb-4 text-white">🚨 Delay Propagation View</h3>
 
       {data.length === 0 ? (
-        <p className="text-gray-500">No train data available.</p>
+        <p className="text-gray-400">No train data available.</p>
       ) : (
         data.map((train, idx) => {
           const updatedRoute = propagateDelays(train.route);
 
           return (
             <div key={idx} className="mb-8">
-              <h4 className="text-md font-semibold text-red-600 mb-2">
-                Train ID: {train.trainId}
+              <h4 className="text-md font-semibold text-red-400 mb-2">
+                Train ID: {train.trainId || train.trainNumber}
               </h4>
-              <table className="min-w-full border border-gray-300 text-sm">
-                <thead className="bg-gray-100">
+              <table className="min-w-full border border-gray-500 text-sm text-white">
+                <thead className="bg-gray-700">
                   <tr>
                     <th className="border px-3 py-2">Station</th>
                     <th className="border px-3 py-2">Original Arr</th>
@@ -45,10 +45,10 @@ export default function DelayPropagator({ data }) {
                 </thead>
                 <tbody>
                   {updatedRoute.map((st, i) => (
-                    <tr key={i} className="hover:bg-gray-50">
-                      <td className="border px-3 py-2">{st.name}</td>
-                      <td className="border px-3 py-2">{st.arrivalTime}</td>
-                      <td className="border px-3 py-2">{st.departureTime}</td>
+                    <tr key={i} className="hover:bg-gray-800">
+                      <td className="border px-3 py-2">{st.station}</td>
+                      <td className="border px-3 py-2">{st.arrival}</td>
+                      <td className="border px-3 py-2">{st.departure}</td>
                       <td className="border px-3 py-2">{st.delay}</td>
                       <td className="border px-3 py-2">{st.cumulativeArrival}</td>
                       <td className="border px-3 py-2">{st.cumulativeDeparture}</td>
