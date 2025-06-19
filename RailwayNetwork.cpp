@@ -42,9 +42,8 @@ public:
 
 unordered_map<string, vector<pair<string, int>>> graph;
 
-// ---- 🧠 Step 1: Sort & Allocate Platforms Greedily ----
 void resolvePlatformConflicts(vector<Train>& trains) {
-    // Map: station name → vector of {arrivalTime, departureTime, &station}
+   
     unordered_map<string, vector<pair<int, Station*>>> stationEvents;
 
     // Gather all station events
@@ -100,20 +99,15 @@ void resolvePlatformConflicts(vector<Train>& trains) {
             }
 
             if (!assigned) {
-                // Delay this train by 5 mins and reassign later
                 s->delay += 5;
                 s->arrivalTime += 5;
                 s->departureTime += 5;
 
-                // Re-evaluate later in next iteration
-                // WARNING: For simplicity, we're not recursively fixing it here
-                // For full optimization, this should be a loop until all assigned
             }
         }
     }
 }
 
-// ---- 🧠 Step 2: Propagate Cumulative Delay ----
 void propagateDelays(vector<Train>& trains) {
     for (Train& train : trains) {
         int cumulativeDelay = 0;
